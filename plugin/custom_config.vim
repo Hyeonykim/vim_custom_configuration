@@ -69,6 +69,13 @@ nnoremap <F3> :NERDTreeToggle<cr>
 " Have nerdtree ignore certain files and directories.
 let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
+nnoremap <c-\>q :wq!<CR>
+
+"# to use ctrl + c, add the following line to .bashrc
+"# enable control-s and control-q
+"stty -ixon
+nmap <silent> <c-s> :w!<CR>
+
 " }}}
 
 "####################################################################
@@ -109,21 +116,26 @@ nnoremap N Nzz
 "####################################################################
 " CSCOPE ----------------- {{{
 if has('cscope')
-  set cscopetag cscopeverbose
+    set cscopetag cscopeverbose
 
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
 
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csff cs find f
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
+    cnoreabbrev csa cs add
+    cnoreabbrev csf cs find
+    cnoreabbrev csff cs find f
+    cnoreabbrev csk cs kill
+    cnoreabbrev csr cs reset
+    cnoreabbrev css cs show
+    cnoreabbrev csh cs help
 
-  "command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+    "command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+    set nocscopeverbose
+    set cscopetagorder=0
+    set cscopetag
+    set cscopeverbose
+    set tagbsearch
 endif
 " }}}
 
@@ -131,27 +143,20 @@ endif
 "########################## Etc option ##############################
 "####################################################################
 " ETC OPTION -----------------------------------{{{
-" influnce how many idential lines are kept around changes(default: 6)
-set diffopt+=context:0
 
-" automatic indentation
-set autoindent
+set autochdir
+
+syntax on " syntax highlighting
+set tabstop=4 " Set tab width to 4 columns.
+set shiftwidth=4 " Set shift width to 4 spaces.
+set background=dark
+set autoindent " automatic indentation
 " set noautoindent
-
-" syntax highlighting
-syntax on
-
-" config colorscheme
-" there are list of colorscheme
-"		blue       default    desert     evening    koehler    murphy     peachpuff  shine      torte
-"		darkblue   delek      elflord    industry   morning    pablo      ron        slate      zellner
-colorscheme desert
-
-" Disable compatibility with vi which can cause unexpected issues.
-set nocompatible
-
-" Enable type file detection. Vim will be able to try to detect the type of file is use.
-filetype on
+set smartindent
+set ruler
+set number " Add numbers to the file.
+set title
+set visualbell "blink when press wrong key
 
 " Enable plugins and load plugin for the detected file type.
 filetype plugin on
@@ -159,11 +164,22 @@ filetype plugin on
 " Load an indent file for the detected file type.
 filetype indent on
 
-" Turn syntax highlighting on.
-syntax on
+" influnce how many idential lines are kept around changes(default: 6)
+set diffopt+=context:0
 
-" Add numbers to the file.
-set number
+
+
+" config colorscheme
+" there are list of colorscheme
+"		blue       default    desert     evening    koehler    murphy     peachpuff  shine      torte
+"		darkblue   delek      elflord    industry   morning    pablo      ron        slate      zellner
+"colorscheme desert
+
+" Disable compatibility with vi which can cause unexpected issues.
+set nocompatible
+
+" Enable type file detection. Vim will be able to try to detect the type of file is use.
+filetype on
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
@@ -171,11 +187,7 @@ set cursorline
 " Highlight cursor line underneath the cursor vertically.
 "set cursorcolumn
 
-" Set shift width to 4 spaces.
-set shiftwidth=4
 
-" Set tab width to 4 columns.
-set tabstop=4
 
 " Use space characters instead of tabs.
 set expandtab
@@ -209,6 +221,27 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+set backspace=indent,start
+
+"" Need to be check"
+
+set omnifunc=syntaxcomplete#Complete
+
+map <F3> :match Errormsg '.\%>80v.\+'<CR>
+map <F5> <c-o>
+map <F6> <c-i>
+
+"enable folding
+set foldmethod=indent
+set foldlevel=99
+set shortmess+=A
+
+map <c-\>b :silent call BuildSpringProject() \| redraw!<CR>
+
+
+set wrap " turn on word wrap
+"set wrap! " turn off word wrap
 " }}}
 
 "####################################################################
@@ -290,9 +323,9 @@ if has('gui_running')
     " <Bar> is the pipe character.
     " <CR> is the enter key.
     nnoremap <F4> :if &guioptions=~#'mTr'<Bar>
-        \set guioptions-=mTr<Bar>
+        \ set guioptions-=mTr<Bar>
         \else<Bar>
-        \set guioptions+=mTr<Bar>
+        \ set guioptions+=mTr<Bar>
         \endif<CR>
 
 endif
@@ -304,7 +337,7 @@ endif
 "####################################################################
 "
 "STATUS LINE ------------------------------------------------------------ {{{
-
+"set statusline=%h%f%m%r%=[%l:%c(%p%%)]
 " Clear status line when vimrc is reloaded.
 set statusline=
 
@@ -321,3 +354,59 @@ set statusline+=%=
 set laststatus=2
 
 " }}}
+
+"####################################################################
+"########################## File specific ###########################
+"####################################################################
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    "\ set noexpandtab |
+    \ set expandtab |
+    \ set autoindent |
+    \ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class |
+    \ set nocindent |
+    "\ set textwidth=79 |
+    \ set fileformat=unix |
+    \ let g:python_recomented_style = 0
+
+"au BufNewFile,Bufread *.java
+"    \ set tabstop=4 |
+"    \ set softtabstop=4 |
+"    \ set shiftwidth=4 |
+"    "\ set expandtab |
+"    \ set noexpandtab |
+"    \ set autoindent |
+"    \ set smarttab |
+"    \ set nocindent |
+"    \ set textwidth=79 |
+"    \ set fileformat=unix |
+"    \ let b:comment_leader = '//'
+
+au BufNewFile,BufRead *.java
+    \ set tabstop=4 |
+    \ set softtabstop=0 |
+    \ set shiftwidth=4 |
+    "\ set noexpandtab |
+    \ set expandtab |
+    \ set autoindent |
+    \ set smarttab |
+    \ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class |
+    \ set nocindent |
+    \ set fileformat=unix |
+    \ let b:comment_leader = '//' |
+    \ let g:python_recomented_style = 0
+
+au BufNewFile,BufRead *.sh
+    \ set tabstop=4|
+    \ set softtabstop=4|
+    \ set shiftwidth=4|
+    "\ set noexpandtab|
+    \ set expandtab|
+    \ set autoindent|
+
+
+au BufNewFile,BufRead *.*
+    \ call CustomMark()
