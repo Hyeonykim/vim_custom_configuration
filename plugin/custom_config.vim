@@ -125,9 +125,10 @@ if has('cscope')
     cnoreabbrev csa cs add
     cnoreabbrev csf cs find
     cnoreabbrev csff cs find f
+    cnoreabbrev csfe cs find e
     cnoreabbrev csk cs kill
     cnoreabbrev csr cs reset
-    cnoreabbrev css cs show
+    cnoreabbrev csss cs show
     cnoreabbrev csh cs help
 
     "command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
@@ -270,8 +271,6 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-" If the current file type is HTML, set indentation to 2 spaces.
-autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 " If Vim version is equal to or greater than 7.3 enable undofile.
 " This allows you to undo changes to a file even after saving it.
@@ -359,7 +358,7 @@ set laststatus=2
 "########################## File specific ###########################
 "####################################################################
 
-au BufNewFile,BufRead *.py
+autocmd BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -372,7 +371,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix |
     \ let g:python_recomented_style = 0
 
-"au BufNewFile,Bufread *.java
+"autocmd BufNewFile,Bufread *.java
 "    \ set tabstop=4 |
 "    \ set softtabstop=4 |
 "    \ set shiftwidth=4 |
@@ -385,7 +384,7 @@ au BufNewFile,BufRead *.py
 "    \ set fileformat=unix |
 "    \ let b:comment_leader = '//'
 
-au BufNewFile,BufRead *.java
+autocmd BufNewFile,BufRead *.java
     \ set tabstop=4 |
     \ set softtabstop=0 |
     \ set shiftwidth=4 |
@@ -399,14 +398,18 @@ au BufNewFile,BufRead *.java
     \ let b:comment_leader = '//' |
     \ let g:python_recomented_style = 0
 
-au BufNewFile,BufRead *.sh
-    \ set tabstop=4|
-    \ set softtabstop=4|
-    \ set shiftwidth=4|
-    "\ set noexpandtab|
-    \ set expandtab|
-    \ set autoindent|
+autocmd BufNewFile,BufRead *.sh
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    "\ set noexpandtab |
+    \ set expandtab |
+    \ set autoindent |
 
+autocmd BufNewFile,BufRead *.html
+    \ set tabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab
 
-au BufNewFile,BufRead *.*
+autocmd BufNewFile,BufRead *.*
     \ call CustomMark()
