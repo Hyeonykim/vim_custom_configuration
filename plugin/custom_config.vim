@@ -223,7 +223,7 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-set backspace=indent,start
+set backspace=indent,start,eol
 
 "" Need to be check"
 
@@ -243,6 +243,11 @@ map <c-\>b :silent call BuildSpringProject() \| redraw!<CR>
 
 set wrap " turn on word wrap
 "set wrap! " turn off word wrap
+
+" configuration for auto-pairs
+" disable to call AutoPairsDelete() function
+let g:AutoPairsMapBS=0
+let g:AutoPairsMapCh=0
 " }}}
 
 "####################################################################
