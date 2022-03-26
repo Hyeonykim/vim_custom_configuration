@@ -6,7 +6,7 @@
 "####################################################################
 "########################## Key Binding #############################
 "####################################################################
-" MAPPINGS --------------------------------------------------------------- {{{
+" MAPPINGS ------------------------------------------------------ {{{
 
 " You can split the window in Vim by typing :split or :vsplit.
 " Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
@@ -31,7 +31,8 @@ let mapleader = "\\"
 " Press \\ to jump back to the last cursor position.
 nnoremap <leader>\ ``
 
-" Press \p to print the current file to the default printer from a Linux operating system.
+" Press \p to print the current file to the default printer
+" from a Linux operating system.
 " View available printers:   lpstat -v
 " Set default printer:       lpoptions -d <printer_name>
 " <silent> means do not display output.
@@ -67,7 +68,8 @@ nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 nnoremap <F3> :NERDTreeToggle<cr>
 
 " Have nerdtree ignore certain files and directories.
-let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$',
+			\'\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
 nnoremap <c-\>q :wq!<CR>
 
@@ -82,11 +84,12 @@ nmap <silent> <c-s> :w!<CR>
 "########################## Search option############################
 "####################################################################
 "
-" SEARCH OPTION --------------------------------------------------------------- {{{
+" SEARCH OPTION ------------------------------------------------- {{{
 " highlight all search pattern
 set hlsearch
 
-" While searching though a file incrementally highlight matching characters as you type.
+" While searching though a file incrementally
+" highlight matching characters as you type.
 set incsearch
 "set noincsearch
 
@@ -172,14 +175,16 @@ set diffopt+=context:0
 
 " config colorscheme
 " there are list of colorscheme
-"		blue       default    desert     evening    koehler    murphy     peachpuff  shine      torte
-"		darkblue   delek      elflord    industry   morning    pablo      ron        slate      zellner
+"		blue       default    desert     evening    koehler    murphy
+"		peachpuff  shine      torte      darkblue   delek      elflord
+"		industry   morning    pablo      ron        slate      zellner
 "colorscheme desert
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
-" Enable type file detection. Vim will be able to try to detect the type of file is use.
+" Enable type file detection.
+" Vim will be able to try to detect the type of file is use.
 filetype on
 
 " Highlight cursor line underneath the cursor horizontally.
@@ -253,7 +258,7 @@ let g:AutoPairsMapCh=0
 "####################################################################
 "########################## Plugins option###########################
 "####################################################################
-" PLUGINS ---------------------------------------------------------------- {{{
+" PLUGINS ------------------------------------------------------- {{{
 
 "call plug#begin('~/.vim/plugged')
 "
@@ -268,7 +273,7 @@ let g:AutoPairsMapCh=0
 "####################################################################
 "########################## VIM Script ##############################
 "####################################################################
-" VIMSCRIPT -------------------------------------------------------------- {{{
+" VIMSCRIPT ----------------------------------------------------- {{{
 
 " Enable the marker method of folding.
 augroup filetype_vim
@@ -340,7 +345,7 @@ endif
 "########################## Status Line #############################
 "####################################################################
 "
-"STATUS LINE ------------------------------------------------------------ {{{
+"STATUS LINE ---------------------------------------------------- {{{
 "set statusline=%h%f%m%r%=[%l:%c(%p%%)]
 " Clear status line when vimrc is reloaded.
 set statusline=
@@ -363,7 +368,7 @@ set laststatus=2
 "########################## File specific ###########################
 "####################################################################
 "
-" MAPPINGS --------------------------------------------------------------- {{{
+" MAPPINGS ------------------------------------------------------ {{{
 set noexpandtab
 
 autocmd BufNewFile,BufRead *.py
@@ -373,7 +378,8 @@ autocmd BufNewFile,BufRead *.py
     "\ set noexpandtab |
     \ set expandtab |
     \ set autoindent |
-    \ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class |
+    \ set smartindent cinwords=
+			\if,elif,else,for,while,try,except,finally,def,class |
     \ set nocindent |
     "\ set textwidth=79 |
     \ set fileformat=unix |
@@ -400,7 +406,8 @@ autocmd BufNewFile,BufRead *.java
     \ set expandtab |
     \ set autoindent |
     \ set smarttab |
-    \ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class |
+    \ set smartindent cinwords=
+			\if,elif,else,for,while,try,except,finally,def,class |
     \ set nocindent |
     \ set fileformat=unix |
     \ let b:comment_leader = '//' |
@@ -426,7 +433,7 @@ autocmd BufNewFile,BufRead *.*
 "############################ vim scheme ############################
 "####################################################################
 
-" VIM SCHEME --------------------------------------------------------------- {{{
+" VIM SCHEME ---------------------------------------------------- {{{
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
