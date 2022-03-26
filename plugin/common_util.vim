@@ -60,3 +60,11 @@ function! CheckFileExtension(ignoreExtension)
 
     return l:extension
 endfunction
+
+function! CheckLineLengthOver80()
+	match ErrorMsg '\%>80v.\+'
+endfunction
+
+function! SearchLineOver80()
+	execute "normal /\\%>80v.\\+\<CR>"
+endfunction
