@@ -434,6 +434,30 @@ autocmd BufNewFile,BufRead *.*
 "####################################################################
 
 " VIM SCHEME ---------------------------------------------------- {{{
+let airline_themes="../vim-airline/autoload/airline/themes.vim"
+let airline_themes_dark="../vim-airline/autoload/airline/themes/dark.vim"
+if !empty(glob(airline_themes)) && !empty(glob(airline_themes_dark))
+	execute "source "airline_themes
+	execute "source "airline_themes_dark
+
+	let s:airline_a_inactive = [ '#4e4e4e' , '#1c1c1c' , 239 , 234 , '' ]
+	let s:airline_b_inactive = [ '#4e4e4e' , '#262626' , 239 , 235 , '' ]
+	let s:airline_c_inactive = [ '#4e4e4e' , '#303030' , 239 , 236 , '' ]
+
+	let s:airline_a_normal   = [ '#00005f' , '#dfff00' , 17  , 190 ]
+	let s:airline_b_normal   = [ '#ffffff' , '#444444' , 255 , 238 ]
+	let s:airline_c_normal   = [ '#9cffd3' , '#202020' , 85  , 234 ]
+
+	if exists('g:airline#themes#dark#palette') &&
+		\ exists('*airline#themes#generate_color_map')
+		let g:airline#themes#dark#palette.inactive =
+			\ airline#themes#generate_color_map(
+				\ s:airline_a_inactive,
+				\ s:airline_b_inactive,
+				\ s:airline_c_normal)
+	endif
+endif
+
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
