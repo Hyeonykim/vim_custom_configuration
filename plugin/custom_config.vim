@@ -68,8 +68,9 @@ nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 nnoremap <F3> :NERDTreeToggle<cr>
 
 " Have nerdtree ignore certain files and directories.
-let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$',
-			\'\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$',
+			\ '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$',
+			\ '\.odt$', '\.png$', '\.gif$', '\.db$']
 
 nnoremap <c-\>q :wq!<CR>
 
@@ -100,8 +101,9 @@ set ignorecase
 
 " smart search
 "		enable both ignorecase and noignorecase
-"		if search keyword contains lowercase only, search with ignorecase
-"		but if search keyword contains one or more uppercase, search with
+"		if search keyword contains lowercase only,
+"		search with ignorecase but if search keyword
+"		contains one or more uppercase, search with
 "		noignorecase
 set smartcase
 " set nosmartcase
