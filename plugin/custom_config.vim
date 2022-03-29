@@ -436,8 +436,11 @@ autocmd BufNewFile,BufRead *.*
 "####################################################################
 
 " VIM SCHEME ---------------------------------------------------- {{{
-let airline_themes="../vim-airline/autoload/airline/themes.vim"
-let airline_themes_dark="../vim-airline/autoload/airline/themes/dark.vim"
+let curDir=expand("<sfile>:p:h")."/"
+let airline_themes =
+		\ g:curDir . "../../vim-airline/autoload/airline/themes.vim"
+let airline_themes_dark =
+		\ g:curDir . "../../vim-airline/autoload/airline/themes/dark.vim"
 if !empty(glob(airline_themes)) && !empty(glob(airline_themes_dark))
 	execute "source "airline_themes
 	execute "source "airline_themes_dark
