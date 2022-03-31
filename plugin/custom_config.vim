@@ -255,6 +255,10 @@ set wrap " turn on word wrap
 " disable to call AutoPairsDelete() function
 let g:AutoPairsMapBS=0
 let g:AutoPairsMapCh=0
+
+" disable modifyOtherKeys
+let &t_TI = ""
+let &t_TE = ""
 " }}}
 
 "####################################################################
