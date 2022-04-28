@@ -377,6 +377,15 @@ set laststatus=2
 " MAPPINGS ------------------------------------------------------ {{{
 set noexpandtab
 
+" Set Nudmber of colors to 256
+set t_Co=256
+
+" File encoding
+set fileencoding=utf-8
+
+" String encoding
+set encoding=utf-8
+
 autocmd BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
