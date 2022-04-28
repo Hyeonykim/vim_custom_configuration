@@ -41,7 +41,6 @@ nnoremap <silent> <leader>p :%w !lp<CR>
 " Type jj to exit insert mode quickly.
 inoremap jj <Esc>
 
-
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
 
@@ -49,7 +48,6 @@ nnoremap <space> :
 " Exit insert mode after creating a new line above or below the current line.
 "nnoremap o o<esc>
 "nnoremap O O<esc>
-
 
 " Yank from cursor to the end of line.
 nnoremap Y y$
@@ -61,7 +59,6 @@ nnoremap Y y$
 " !clear runs the external clear screen command.
 " !python3 % executes the current file with Python.
 nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
-
 
 " NERDTree specific mappings.
 " Map the F3 key to toggle NERDTree open and close.
@@ -173,8 +170,6 @@ filetype indent on
 " influnce how many idential lines are kept around changes(default: 6)
 set diffopt+=context:0
 
-
-
 " config colorscheme
 " there are list of colorscheme
 "		blue       default    desert     evening    koehler    murphy
@@ -195,8 +190,6 @@ set cursorline
 " Highlight cursor line underneath the cursor vertically.
 "set cursorcolumn
 
-
-
 " Use space characters instead of tabs.
 set expandtab
 
@@ -214,8 +207,6 @@ set showcmd
 
 " Show the mode you are on the last line.
 set showmode
-
-
 
 " Set the commands to save in history default number is 20.
 set history=1000
@@ -246,7 +237,6 @@ set foldlevel=99
 set shortmess+=A
 
 map <c-\>b :silent call BuildSpringProject() \| redraw!<CR>
-
 
 set wrap " turn on word wrap
 "set wrap! " turn off word wrap
@@ -286,7 +276,6 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
-
 
 " If Vim version is equal to or greater than 7.3 enable undofile.
 " This allows you to undo changes to a file even after saving it.
@@ -515,4 +504,10 @@ let g:airline_detect_paste=1
 
 " Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
+
+nnoremap <s-j> :tabfirst<CR>
+nnoremap <s-k> :tablast<CR>
+nnoremap <s-h> :tabprevious<CR>
+nnoremap <s-l> :tabnext<CR>
+nnoremap <c-n> :tabnew<CR>
 " }}}
