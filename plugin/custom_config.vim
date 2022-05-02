@@ -430,10 +430,18 @@ autocmd BufNewFile,BufRead *.html
     \ set shiftwidth=4 |
     \ set expandtab
 
-autocmd BufNewFile,BufRead *.cpp,*.cc
+autocmd BufNewFile,BufRead *.cpp,*.cc,*.c,*.h
 	\ set termencoding=utf-8 |
 	\ set expandtab |
 	\ set comments=sl:/*,mb:\ *,elx:\ */
+
+autocmd BufNewFile,BufRead COMMIT_EDITMSG
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    "\ set noexpandtab |
+    \ set expandtab |
+    \ set autoindent
 
 autocmd BufNewFile,BufRead *.*
     \ call CustomMark()
