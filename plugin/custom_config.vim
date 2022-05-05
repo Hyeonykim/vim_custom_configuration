@@ -249,6 +249,25 @@ let g:AutoPairsMapCh=0
 " disable modifyOtherKeys
 let &t_TI = ""
 let &t_TE = ""
+
+let g:clang_format#style_options = {
+			\ "BasedOnStyle": "LLVM",
+			\ "UseTab": "Never",
+			\ "IndentWidth": 4,
+			\ "TabWidth": 4,
+			\ "AllowShortIfStatementsOnASingleLine": "false",
+			\ "IndentCaseLabels": "true",
+			\ "ColumnLimit": 0,
+			\ "AccessModifierOffset": -4,
+			\ "NamespaceIndentation": "All",
+			\ "FixNamespaceComments": "false",
+			\ "BreakBeforeBraces": "Custom",
+			\ "SortIncludes": "false",
+			\ "AlwaysBreakTemplateDeclarations" : "true",
+			\ "Standard" : "C++11",
+			\}
+
+let g:clang_format#auto_format_on_insert_leave = 1
 " }}}
 
 "####################################################################
