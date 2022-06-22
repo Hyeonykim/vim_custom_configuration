@@ -450,7 +450,7 @@ autocmd BufNewFile,BufRead *.html
     \ set shiftwidth=4 |
     \ set expandtab
 
-autocmd BufNewFile,BufRead *.cpp,*.cc,*.c,*.h
+autocmd BufNewFile,BufRead *.cpp,*.cc,*.c,*.h,CMakeLists.txt
 	\ set termencoding=utf-8 |
 	\ set expandtab |
 	\ set comments=sl:/*,mb:\ *,elx:\ */
