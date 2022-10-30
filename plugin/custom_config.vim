@@ -454,6 +454,12 @@ autocmd BufNewFile,BufRead *.html
     \ set softtabstop=2 |
     \ set expandtab
 
+autocmd BufNewFile,BufRead *.ts,*.js,*.css
+    \ set tabstop=2 |
+    \ set shiftwidth=2 |
+    \ set softtabstop=2 |
+    \ set expandtab
+
 autocmd BufNewFile,BufRead *.cpp,*.cc,*.c,*.h,CMakeLists.txt
 	\ set termencoding=utf-8 |
 	\ set expandtab |
