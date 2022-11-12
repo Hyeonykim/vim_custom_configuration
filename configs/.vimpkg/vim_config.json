@@ -184,7 +184,7 @@
             "recipe": {
                 "linux": [
                     "git submodule update --init --recursive",
-                    "python3 install.py --all"
+                    "python3 install.py --all --force-sudo"
                 ]
             }
         },
