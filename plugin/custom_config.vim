@@ -121,7 +121,7 @@ if has('cscope')
     set cscopetag cscopeverbose
 
     if has('quickfix')
-        set cscopequickfix=s-,c-,d-,i-,t-,e-
+        "set cscopequickfix=s-,c-,d-,i-,t-,e-
     endif
 
     cnoreabbrev csa cs add
@@ -329,7 +329,7 @@ augroup cursor_off
     autocmd!
     autocmd WinLeave * set nocursorline nocursorcolumn
     "autocmd WinEnter * set cursorline cursorcolumn
-    autocmd WinEnter * set cursorline
+    "autocmd WinEnter * set cursorline
 augroup END
 
 " If GUI version of Vim is running set these options.
