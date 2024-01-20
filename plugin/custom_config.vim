@@ -270,8 +270,8 @@ let g:clang_format#style_options = {
 
 let g:clang_format#detect_style_file = 1
 let g:clang_format#enable_fallback_style = 0
-let g:clang_format#auto_filetypes = ['java']
-let g:clang_format#auto_format_on_insert_leave = 1
+"let g:clang_format#auto_filetypes = ['java']
+"let g:clang_format#auto_format_on_insert_leave = 1
 
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 1
