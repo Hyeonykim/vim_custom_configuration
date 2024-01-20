@@ -1,7 +1,7 @@
 let curDir=expand("<sfile>:p:h")."/"
 exec "source " . g:curDir ."common_util.vim"
 
-let g:defaultBuildCmd="mvn compile -Dskiptests"
+let g:defaultBuildCmd="JAVA_TOOL_OPTIONS= mvn clean compile -Dskiptests"
 
 " build spring project
 "   find directory which have pom.xml file
