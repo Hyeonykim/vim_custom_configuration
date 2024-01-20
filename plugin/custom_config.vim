@@ -272,6 +272,21 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#enable_fallback_style = 0
 let g:clang_format#auto_filetypes = ['java']
 let g:clang_format#auto_format_on_insert_leave = 1
+
+let g:prettier#autoformat = 0
+let g:prettier#autoformat_require_pragma = 1
+let g:prettier#partial_format=1
+let g:prettier#quickfix_enabled = 1
+"autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
+map <c-\>p :PrettierPartial<CR>
+"map <c-\>p :PrettierFragment<CR>
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#parser = 'babylon'
+let g:prettier#config#semi = 'false'
+"let g:prettier#config#tab_width = '9'
+let g:prettier#config#config_precedence ='cli-override'
+
 " }}}
 
 "####################################################################
