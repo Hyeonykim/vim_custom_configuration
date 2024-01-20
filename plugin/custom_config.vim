@@ -454,7 +454,7 @@ autocmd BufNewFile,BufRead *.html
     \ set softtabstop=2 |
     \ set expandtab
 
-autocmd BufNewFile,BufRead *.ts,*.js,*.css
+autocmd BufNewFile,BufRead *.ts,*.js,*.vue,*.css
     \ set tabstop=2 |
     \ set shiftwidth=2 |
     \ set softtabstop=2 |
@@ -462,8 +462,19 @@ autocmd BufNewFile,BufRead *.ts,*.js,*.css
 
 autocmd BufNewFile,BufRead *.cpp,*.cc,*.c,*.h,CMakeLists.txt
 	\ set termencoding=utf-8 |
-	\ set expandtab |
-	\ set comments=sl:/*,mb:\ *,elx:\ */
+	\ set noexpandtab |
+	"\ set expandtab |
+	\ set comments=sl:/*,mb:\ *,elx:\ */ |
+	\ set tabstop=4 |
+	\ set softtabstop=0 |
+	\ set shiftwidth=4 |
+	\ set autoindent |
+	\ set smarttab |
+	\ set smartindent cinwords=
+			\if,elif,else,for,while,try,except,finally,def,class |
+	\ set fileformat=unix |
+	\ let b:comment_leader = '//' |
+	\ let g:python_recomented_style = 0
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG
     \ set tabstop=4 |
